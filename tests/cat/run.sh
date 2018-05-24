@@ -1,7 +1,7 @@
 #!/bin/bash
 
 script_dir=$(realpath $(dirname $0))
-project_dir=$(realpath ${script_dir}/..)
+project_dir=$(realpath ${script_dir}/../..)
 
 cd ${project_dir}/tests
 
