@@ -1,9 +1,11 @@
-from __future__ import print_function
-
+from PIL import Image
+import fnmatch
+import logging
 import os
 import sys
-import fnmatch
-from PIL import Image
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 def main(argv):
 
@@ -20,16 +22,14 @@ def main(argv):
     jpg_files = fnmatch.filter(os.listdir(input_dir), "*.jpg")
 
     for file in jpg_files:
+        logging.debug("resizing {0}".format(file))
         infile = os.path.join(input_dir, file)
         outfile = os.path.join(output_dir, file)
-        try :
-            im = Image.open(infile)
-            width, height = im.size
-            size = (width / 2, height / 2)
-            out = im.resize(size, Image.ANTIALIAS)
-            out.save(outfile, "jpeg")
-        except IOError:
-            print("cannot reduce image for ", infile)
+        im = Image.open(infile)
+        width, height = im.size
+        size = (width / 2, height / 2)
+        out = im.resize(size, Image.ANTIALIAS)
+        out.save(outfile, "jpeg")
 
 if __name__ == "__main__":
     main(sys.argv)
