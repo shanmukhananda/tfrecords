@@ -63,7 +63,7 @@ def bdd2tfrecord(infile):
                     ymin.append(y1 / img_height)
                     ymax.append(y2 / img_height)
                     text.append(category)
-                    ids.append(obj_id)
+                    ids.append(str(obj_id))
                     label.append(obj_id)
 
             tf_bbx["conf"] = conf
