@@ -1,0 +1,28 @@
+item{
+id:6
+name:'bus'
+}
+item{
+id:1
+name:'traffic light'
+}
+item{
+id:5
+name:'traffic sign'
+}
+item{
+id:4
+name:'person'
+}
+item{
+id:7
+name:'bike'
+}
+item{
+id:3
+name:'truck'
+}
+item{
+id:2
+name:'car'
+}

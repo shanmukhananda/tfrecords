@@ -126,43 +126,41 @@ def _convert_to_example(image_example, image_buffer, height, width, colorspace='
     example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': _int64_feature(height),
         'image/width': _int64_feature(width),
-        'image/colorspace': _bytes_feature(colorspace),
-        'image/channels': _int64_feature(channels),
+        #'image/colorspace': _bytes_feature(colorspace),
+        #'image/channels': _int64_feature(channels),
         'image/format': _bytes_feature(image_format),
         'image/filename': _bytes_feature(filename),
-        'image/id': _bytes_feature(image_id),
+        #'image/id': _bytes_feature(image_id),
         'image/encoded': _bytes_feature(image_buffer),
-        'image/extra': _bytes_feature(extra_info),
-        'image/class/label': _int64_feature(class_label),
-        'image/class/text': _bytes_feature(class_text),
-        'image/class/conf': _float_feature(class_conf),
+        #'image/extra': _bytes_feature(extra_info),
+        #'image/class/label': _int64_feature(class_label),
+        #'image/class/text': _bytes_feature(class_text),
+        #'image/class/conf': _float_feature(class_conf),
         'image/object/bbox/xmin': _float_feature(xmin),
         'image/object/bbox/xmax': _float_feature(xmax),
         'image/object/bbox/ymin': _float_feature(ymin),
         'image/object/bbox/ymax': _float_feature(ymax),
-        'image/object/bbox/label': _int64_feature(bbox_labels),
-        'image/object/bbox/text': _bytes_feature(bbox_text),
-        'image/object/bbox/conf': _float_feature(bbox_label_confs),
-        'image/object/bbox/score' : _float_feature(bbox_scores),
-        'image/object/parts/x' : _float_feature(parts_x),
-        'image/object/parts/y' : _float_feature(parts_y),
-        'image/object/parts/v' : _int64_feature(parts_v),
-        'image/object/parts/score' : _float_feature(parts_s),
-        'image/object/count' : _int64_feature(object_count),
-        'image/object/area' : _float_feature(object_areas),
-        'image/object/id' : _bytes_feature(object_ids),
+        #'image/object/bbox/label': _int64_feature(bbox_labels),
+        #'image/object/bbox/text': _bytes_feature(bbox_text),
+        #'image/object/bbox/conf': _float_feature(bbox_label_confs),
+        #'image/object/bbox/score' : _float_feature(bbox_scores),
+        #'image/object/parts/x' : _float_feature(parts_x),
+        #'image/object/parts/y' : _float_feature(parts_y),
+        #'image/object/parts/v' : _int64_feature(parts_v),
+        #'image/object/parts/score' : _float_feature(parts_s),
+        #'image/object/count' : _int64_feature(object_count),
+        #'image/object/area' : _float_feature(object_areas),
+        #'image/object/id' : _bytes_feature(object_ids),
 
         # Additional fields for the format needed by the Object Detection repository
         'image/source_id': _bytes_feature(image_id),
-        'image/key/sha256': _bytes_feature(key),
+        #'image/key/sha256': _bytes_feature(key),
         'image/object/class/label': _int64_feature(bbox_labels),
         'image/object/class/text': _bytes_feature(bbox_text),
-        'image/object/is_crowd': _int64_feature(is_crowd)
-
+        #'image/object/is_crowd': _int64_feature(is_crowd)
     }))
     return example
-
-
+    
 class ImageCoder(object):
     """Helper class that provides TensorFlow image coding utilities."""
 
