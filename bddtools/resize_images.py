@@ -15,11 +15,11 @@ logging.basicConfig(
 def resize(input_path, output_path):
 
     logging.debug("resizing {0}".format(input_path))
-    im = Image.open(infile)
+    im = Image.open(input_path)
     width, height = im.size
     size = (int(width / 2), int(height / 2))
     out = im.resize(size, Image.ANTIALIAS)
-    out.save(outfile, im.format)
+    out.save(output_path, im.format)
 
 def get_data(input_dir, output_dir):
     

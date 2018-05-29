@@ -17,16 +17,12 @@ def area_rectangle(x1, y1, x2, y2):
     dy = abs(y2 - y1)
     return dx * dy
 
-# image/object/class/label is a unique number (>1) which maps to image/object/class/text
-
 label_map = {}
 counter = 0
 def label_id(key):
     global label_map
     global counter
-    if key in label_map:
-        ret = label_map[key]
-    else:
+    if key not in label_map:
         counter += 1
         label_map[key] = counter
     return label_map[key]
